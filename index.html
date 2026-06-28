@@ -3,78 +3,149 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>محمد يحيى | Portfolio</title>
+    <title>محمد يحيى | Portfolio</title>
 
-<link rel="stylesheet"
-href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Devicon -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
 </head>
 
 <body>
 
+<!--==================== NAVBAR ====================-->
+
 <header>
+
+<div class="container nav">
 
 <div class="logo">
 M
 </div>
 
+<div class="menu-btn">
+<i class="fa-solid fa-bars"></i>
+</div>
+
 <nav>
 
-<a href="#">الرئيسية</a>
+<a class="active" href="#">الرئيسية</a>
 
 <a href="#">عني</a>
 
+<a href="#">خدماتي</a>
+
 <a href="#">أعمالي</a>
 
-<a href="https://themrx7z.blogspot.com/">المقالات</a>
+<a href="#">المقالات</a>
 
 <a href="#">تواصل</a>
 
 </nav>
 
+<div class="theme">
+
+<i class="fa-solid fa-moon"></i>
+
+</div>
+
+</div>
+
 </header>
+
+<!--==================== HERO ====================-->
 
 <section class="hero">
 
-<div class="content">
+<div class="overlay"></div>
 
-<h4>مرحباً، أنا</h4>
+<div class="container hero-content">
 
-<h1>محمد <span>يحيى</span></h1>
+<div class="hero-text">
+
+<h3>مرحباً، أنا</h3>
+
+<h1>
+
+محمد <span>يحيى</span>
+
+</h1>
+
+<h2>
+
+أحول الأفكار إلى تجارب رقمية مميزة
+
+</h2>
 
 <p>
 
-مطور مواقع، مصمم واجهات، كاتب مقالات، وصانع محتوى تقني.
+مطور مواقع، مصمم، كاتب مقالات، وصانع محتوى شغوف
+بالتقنية والإبداع.
 
 </p>
 
-<div class="buttons">
+<div class="hero-buttons">
 
-<a href="#">تواصل معي</a>
+<a href="#" class="btn red">
 
-<a href="#">أعمالي</a>
+<i class="fa-solid fa-paper-plane"></i>
+
+تواصل معي
+
+</a>
+
+<a href="#" class="btn">
+
+<i class="fa-solid fa-briefcase"></i>
+
+عرض أعمالي
+
+</a>
 
 </div>
 
 </div>
 
-<div class="image">
+<div class="hero-image">
+
+<div class="circle">
 
 <img src="assets/logo.png">
 
 </div>
 
+</div>
+
+</div>
+
 </section>
 
-<section class="skills">
+<!--==================== SERVICES ====================-->
 
-<h2>تخصصاتي</h2>
+<section class="services">
+
+<div class="container">
+
+<h2 class="section-title">
+
+تخصصاتي
+
+</h2>
 
 <div class="cards">
 
@@ -82,23 +153,53 @@ M
 
 <i class="fa-solid fa-code"></i>
 
-<h3>برمجة مواقع</h3>
+<h3>
+
+برمجة مواقع
+
+</h3>
+
+<p>
+
+تصميم وتطوير مواقع ويب احترافية سريعة ومتجاوبة.
+
+</p>
 
 </div>
 
 <div class="card">
 
-<i class="fa-solid fa-pen-nib"></i>
+<i class="fa-solid fa-paintbrush"></i>
 
-<h3>تصميم</h3>
+<h3>
+
+تصميم
+
+</h3>
+
+<p>
+
+تصميم واجهات حديثة وتجربة مستخدم احترافية.
+
+</p>
 
 </div>
 
 <div class="card">
 
-<i class="fa-solid fa-newspaper"></i>
+<i class="fa-solid fa-pen"></i>
 
-<h3>كتابة مقالات</h3>
+<h3>
+
+كتابة مقالات
+
+</h3>
+
+<p>
+
+مقالات تقنية احترافية ومتوافقة مع محركات البحث.
+
+</p>
 
 </div>
 
@@ -106,35 +207,356 @@ M
 
 <i class="fa-solid fa-video"></i>
 
-<h3>صناعة محتوى</h3>
+<h3>
+
+صناعة محتوى
+
+</h3>
+
+<p>
+
+إنتاج محتوى احترافي ليوتيوب ومنصات التواصل.
+
+</p>
+
+</div>
 
 </div>
 
 </div>
 
 </section>
+
+<!--==================== LANGUAGES ====================-->
 
 <section class="languages">
 
-<h2>لغات البرمجة</h2>
+<div class="container">
 
-<div class="icons">
+<h2 class="section-title">
 
-<i class="fa-brands fa-html5 html"></i>
+لغات البرمجة
 
-<i class="fa-brands fa-css3-alt css"></i>
+</h2>
 
-<i class="fa-brands fa-js js"></i>
+<div class="lang-grid">
 
-<i class="fa-brands fa-java java"></i>
+<div>
 
-<i class="fa-brands fa-php php"></i>
+<i class="devicon-html5-plain colored"></i>
 
-<i class="fa-brands fa-python python"></i>
+<span>HTML</span>
+
+</div>
+
+<div>
+
+<i class="devicon-java-plain colored"></i>
+
+<span>Java</span>
+
+</div>
+
+<div>
+
+<i class="devicon-javascript-plain colored"></i>
+
+<span>JavaScript</span>
+
+</div>
+
+<div>
+
+<i class="devicon-css3-plain colored"></i>
+
+<span>CSS</span>
+
+</div>
+
+<div>
+
+<i class="devicon-php-plain colored"></i>
+
+<span>PHP</span>
+
+</div>
+
+<div>
+
+<i class="devicon-python-plain colored"></i>
+
+<span>Python</span>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
+
+<!--==================== STATS ====================-->
+
+<section class="stats">
+
+<div class="container stats-grid">
+
+<div>
+
+<h3>100+</h3>
+
+<p>عميل سعيد</p>
+
+</div>
+
+<div>
+
+<h3>50+</h3>
+
+<p>مشروع مكتمل</p>
+
+</div>
+
+<div>
+
+<h3>70+</h3>
+
+<p>مقال مكتوب</p>
+
+</div>
+
+<div>
+
+<h3>3+</h3>
+
+<p>سنوات خبرة</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==================== PROJECTS ====================-->
+
+<section class="projects">
+
+<div class="container">
+
+<h2 class="section-title">
+
+أحدث أعمالي
+
+</h2>
+
+<div class="project-grid">
+
+<div class="project">
+
+<img src="assets/project1.jpg">
+
+<div class="project-info">
+
+<h3>
+
+منصة تعليمية
+
+</h3>
+
+<a href="#">
+
+عرض المشروع
+
+</a>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<img src="assets/project2.jpg">
+
+<div class="project-info">
+
+<h3>
+
+موقع شركة
+
+</h3>
+
+<a href="#">
+
+عرض المشروع
+
+</a>
+
+</div>
+
+</div>
+
+<div class="project">
+
+<img src="assets/project3.jpg">
+
+<div class="project-info">
+
+<h3>
+
+محتوى تقني
+
+</h3>
+
+<a href="#">
+
+عرض المزيد
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==================== CTA ====================-->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+
+لدي فكرة مشروع؟
+
+</h2>
+
+<p>
+
+دعنا نحولها إلى واقع.
+
+</p>
+
+<a href="#">
+
+تواصل معي الآن
+
+</a>
+
+</div>
+
+</section>
+
+<!--==================== FOOTER ====================-->
+
+<footer>
+
+<div class="container footer-grid">
+
+<div>
+
+<h2>
+
+M
+
+</h2>
+
+<p>
+
+محمد يحيى
+
+مطور مواقع، مصمم، كاتب مقالات،
+وصانع محتوى.
+
+</p>
+
+<div class="social">
+
+<a href="https://github.com/themrx7z"><i class="fab fa-github"></i></a>
+
+<a href="https://www.linkedin.com/in/themrx7z"><i class="fab fa-linkedin"></i></a>
+
+<a href="https://www.youtube.com/@themrx7z"><i class="fab fa-youtube"></i></a>
+
+<a href="https://x.com/themrx7z"><i class="fab fa-x-twitter"></i></a>
+
+<a href="https://instagram.com/@themrx7z"><i class="fab fa-instagram"></i></a>
+
+</div>
+
+</div>
+
+<div>
+
+<h3>
+
+روابط سريعة
+
+</h3>
+
+<ul>
+
+<li><a href="#">الرئيسية</a></li>
+
+<li><a href="#">عني</a></li>
+
+<li><a href="#">أعمالي</a></li>
+
+<li><a href="https://themrx7z.blogspot.com/">المقالات</a></li>
+
+<li><a href="#">تواصل</a></li>
+
+</ul>
+
+</div>
+
+<div>
+
+<h3>
+
+تواصل معي
+
+</h3>
+
+<p>
+
+themrx7z@hotmail.com
+
+</p>
+
+<p>
+
+themrx7z@mail.ru
+
+</p>
+
+<p>
+
+العراق
+
+</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+
+© 2026 محمد يحيى - جميع الحقوق محفوظة
+
+</div>
+
+</footer>
+
+<button id="top">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
 
 <script src="script.js"></script>
 
