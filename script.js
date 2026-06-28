@@ -1,12 +1,16 @@
-const links = document.querySelectorAll("nav a");
+const cards = document.querySelectorAll(".card");
 
-links.forEach(link=>{
+cards.forEach(card=>{
 
-link.addEventListener("click",()=>{
+card.addEventListener("mouseenter",()=>{
 
-links.forEach(l=>l.classList.remove("active"));
+card.style.boxShadow="0 0 25px red";
 
-link.classList.add("active");
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.boxShadow="none";
 
 });
 
