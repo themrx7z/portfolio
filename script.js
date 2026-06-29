@@ -1,39 +1,91 @@
-// ===============================
-// Mobile Menu
-// ===============================
+// =========================
+// Portfolio Script
+// محمد يحيى
+// =========================
 
-const menuBtn = document.querySelector(".menu-btn");
-const nav = document.querySelector("nav");
+// Loader
 
-menuBtn.addEventListener("click", () => {
+window.addEventListener("load", () => {
 
-    nav.classList.toggle("active");
+    const loader = document.getElementById("loader");
 
-    menuBtn.innerHTML = nav.classList.contains("active")
-        ? '<i class="fa-solid fa-xmark"></i>'
-        : '<i class="fa-solid fa-bars"></i>';
+    setTimeout(() => {
 
-});
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
 
-// ===============================
-// Close Menu On Click
-// ===============================
-
-document.querySelectorAll("nav a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        nav.classList.remove("active");
-
-        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
-
-    });
+    }, 1200);
 
 });
 
-// ===============================
-// Navbar Scroll
-// ===============================
+// =========================
+// Typing Effect
+// =========================
+
+const words = [
+
+    "Web Developer",
+    "Article Writer",
+    "UI Designer",
+    "HTML Developer",
+    "CSS Expert",
+    "JavaScript Developer",
+    "PHP Developer",
+    "Python Developer",
+    "Java Programmer"
+
+];
+
+const typing = document.querySelector(".typing");
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+
+    const current = words[wordIndex];
+
+    if (!deleting) {
+
+        typing.textContent = current.substring(0, charIndex++);
+
+        if (charIndex > current.length) {
+
+            deleting = true;
+
+            setTimeout(typeEffect, 1500);
+
+            return;
+
+        }
+
+    } else {
+
+        typing.textContent = current.substring(0, charIndex--);
+
+        if (charIndex < 0) {
+
+            deleting = false;
+
+            wordIndex++;
+
+            if (wordIndex >= words.length)
+                wordIndex = 0;
+
+        }
+
+    }
+
+    setTimeout(typeEffect, deleting ? 60 : 120);
+
+}
+
+typeEffect();
+
+// =========================
+// Sticky Header
+// =========================
 
 const header = document.querySelector("header");
 
@@ -41,61 +93,70 @@ window.addEventListener("scroll", () => {
 
     if (window.scrollY > 80) {
 
-        header.style.background = "#090909";
+        header.style.background = "#111";
 
-        header.style.boxShadow = "0 10px 30px rgba(255,0,0,.15)";
+        header.style.padding = "15px 8%";
 
     } else {
 
-        header.style.background = "rgba(0,0,0,.70)";
+        header.style.background = "rgba(0,0,0,.35)";
 
-        header.style.boxShadow = "none";
+        header.style.padding = "20px 8%";
 
     }
 
 });
 
-// ===============================
-// Scroll To Top
-// ===============================
+// =========================
+// Mobile Menu
+// =========================
 
-const topBtn = document.getElementById("top");
+const menu = document.querySelector(".menu");
 
-window.addEventListener("scroll", () => {
+const nav = document.querySelector("nav");
 
-    if (window.scrollY > 300) {
+menu.addEventListener("click", () => {
 
-        topBtn.style.opacity = "1";
-
-        topBtn.style.pointerEvents = "auto";
-
-    } else {
-
-        topBtn.style.opacity = "0";
-
-        topBtn.style.pointerEvents = "none";
-
-    }
+    nav.classList.toggle("active");
 
 });
 
-topBtn.addEventListener("click", () => {
+// =========================
+// Scroll Reveal
+// =========================
 
-    window.scrollTo({
+const observer = new IntersectionObserver(entries => {
 
-        top: 0,
+    entries.forEach(entry => {
 
-        behavior: "smooth"
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+        }
 
     });
 
+}, {
+
+    threshold: 0.2
+
 });
 
-// ===============================
-// Active Navbar Link
-// ===============================
+document.querySelectorAll("section,.card,.project,.skill").forEach(el => {
+
+    el.classList.add("hidden");
+
+    observer.observe(el);
+
+});
+
+// =========================
+// Active Navbar
+// =========================
 
 const sections = document.querySelectorAll("section");
+
 const navLinks = document.querySelectorAll("nav a");
 
 window.addEventListener("scroll", () => {
@@ -105,11 +166,10 @@ window.addEventListener("scroll", () => {
     sections.forEach(section => {
 
         const top = section.offsetTop - 150;
-        const height = section.clientHeight;
 
         if (pageYOffset >= top) {
 
-            current = section.getAttribute("class").split(" ")[0];
+            current = section.getAttribute("id");
 
         }
 
@@ -129,146 +189,147 @@ window.addEventListener("scroll", () => {
 
 });
 
-// ===============================
-// Scroll Reveal
-// ===============================
+// =========================
+// Back To Top
+// =========================
 
-const reveals = document.querySelectorAll(
-    ".card,.project,.stats-grid div,.lang-grid div,.hero-text,.hero-image"
-);
+const topBtn = document.createElement("button");
 
-function revealAnimation() {
+topBtn.innerHTML = "↑";
 
-    reveals.forEach(item => {
+topBtn.id = "topBtn";
 
-        const top = item.getBoundingClientRect().top;
+document.body.appendChild(topBtn);
 
-        const visible = 120;
+topBtn.style.cssText = `
+position:fixed;
+bottom:30px;
+left:30px;
+width:50px;
+height:50px;
+border:none;
+border-radius:50%;
+background:#ff3b3b;
+color:white;
+font-size:20px;
+cursor:pointer;
+display:none;
+z-index:999;
+transition:.3s;
+`;
 
-        if (top < window.innerHeight - visible) {
+window.addEventListener("scroll", () => {
 
-            item.style.opacity = "1";
+    if (window.scrollY > 500) {
 
-            item.style.transform = "translateY(0)";
-
-        }
-
-    });
-
-}
-
-reveals.forEach(item => {
-
-    item.style.opacity = "0";
-
-    item.style.transform = "translateY(60px)";
-
-    item.style.transition = "all .8s ease";
-
-});
-
-window.addEventListener("scroll", revealAnimation);
-
-revealAnimation();
-
-// ===============================
-// Typing Effect
-// ===============================
-
-const title = document.querySelector(".hero-text h2");
-
-const words = [
-
-    "مطور مواقع احترافي",
-
-    "مصمم واجهات UI/UX",
-
-    "كاتب مقالات تقنية",
-
-    "صانع محتوى"
-
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-function typingEffect() {
-
-    const current = words[wordIndex];
-
-    if (!deleting) {
-
-        title.textContent = current.substring(0, charIndex++);
-
-        if (charIndex > current.length) {
-
-            deleting = true;
-
-            setTimeout(typingEffect, 1500);
-
-            return;
-
-        }
+        topBtn.style.display = "block";
 
     } else {
 
-        title.textContent = current.substring(0, charIndex--);
-
-        if (charIndex < 0) {
-
-            deleting = false;
-
-            wordIndex++;
-
-            if (wordIndex >= words.length) {
-
-                wordIndex = 0;
-
-            }
-
-        }
+        topBtn.style.display = "none";
 
     }
 
-    setTimeout(typingEffect, deleting ? 45 : 90);
+});
 
-}
+topBtn.onclick = () => {
 
-typingEffect();
+    window.scrollTo({
 
-// ===============================
-// Card Hover Glow
-// ===============================
+        top: 0,
 
-document.querySelectorAll(".card").forEach(card => {
-
-    card.addEventListener("mousemove", e => {
-
-        const x = e.offsetX;
-        const y = e.offsetY;
-
-        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,0,0,.18), #121212)`;
+        behavior: "smooth"
 
     });
 
-    card.addEventListener("mouseleave", () => {
+};
 
-        card.style.background = "#121212";
+// =========================
+// Animate Skill Bars
+// =========================
+
+const skills = document.querySelectorAll(".progress span");
+
+const skillObserver = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            const width = entry.target.style.width;
+
+            entry.target.style.width = "0";
+
+            setTimeout(() => {
+
+                entry.target.style.width = width;
+
+            }, 200);
+
+        }
 
     });
 
 });
 
-// ===============================
-// Footer Year
-// ===============================
+skills.forEach(skill => {
 
-const copy = document.querySelector(".copyright");
+    skillObserver.observe(skill);
 
-if (copy) {
+});
 
-    copy.innerHTML =
-        `© ${new Date().getFullYear()} محمد يحيى - جميع الحقوق محفوظة`;
+// =========================
+// Contact Form
+// =========================
+
+const form = document.querySelector("form");
+
+if (form) {
+
+    form.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        alert("تم إرسال رسالتك بنجاح.");
+
+        form.reset();
+
+    });
 
 }
+
+// =========================
+// Cursor Glow
+// =========================
+
+const glow = document.createElement("div");
+
+glow.style.cssText = `
+position:fixed;
+width:18px;
+height:18px;
+border-radius:50%;
+background:#ff3b3b;
+pointer-events:none;
+transform:translate(-50%,-50%);
+filter:blur(5px);
+opacity:.8;
+z-index:9999;
+`;
+
+document.body.appendChild(glow);
+
+document.addEventListener("mousemove", e => {
+
+    glow.style.left = e.clientX + "px";
+
+    glow.style.top = e.clientY + "px";
+
+});
+
+// =========================
+// Console Message
+// =========================
+
+console.log("%cمحمد يحيى Portfolio", "color:#ff3b3b;font-size:20px;font-weight:bold;");
+console.log("Website Developed with HTML CSS JavaScript");
